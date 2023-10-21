@@ -2,7 +2,7 @@
 
 import cv2 as cv
 
-img = cv.imread(r'Resources\KAP_Gentlemen\Ethan\20231016221305-b3f94bfc-la.jpg')
+img = cv.imread(r'Resources\Group_Photos\Retreat 23-24 Group\20231016210431-ba0e08a2-la.jpg')
 # cv.imshow('Group of 5 people', img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
