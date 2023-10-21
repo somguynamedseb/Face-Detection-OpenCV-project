@@ -2,7 +2,7 @@
 
 import cv2 as cv
 
-img = cv.imread('Resources\Group_Photos\KAP_all_1.jpg')
+img = cv.imread(r'Resources\KAP_Gentlemen\Ethan\20231016221305-b3f94bfc-la.jpg')
 # cv.imshow('Group of 5 people', img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -10,13 +10,12 @@ gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
-faces_rect = haar_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
+faces_rect = haar_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=8)
 
 print(f'Number of faces found = {len(faces_rect)}')
 
 for (x,y,w,h) in faces_rect:
     cv.rectangle(img, (x,y), (x+w,y+h), (0,255,0), thickness=2)
-print(faces_rect[0][0])
 cv.imshow('Detected Faces', img)
 # img2 = cv.resize(img, (500,500))
 # img3 = cv.resize(img, (1000,1000))
