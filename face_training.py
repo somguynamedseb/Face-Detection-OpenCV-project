@@ -2,7 +2,7 @@ import os
 import cv2 as cv
 import numpy as np
 
-people = ['Aiden S', 'Bryce', 'Caleb', 'Charlie','Ethan','Henry','Issa','Jeff','Jim','John','Matthew','Nate','Nathanel','Scott','Sean','Spencer','Tyler','Vijay','Wyatt']
+people = ['Aiden S', 'Bryce', 'Caleb', 'Chase','Charlie','Ethan','Graham','Henry','Issa','Jeff','Jim','Matt Duncan','Matthew','Nate','Nathanel','Scott','Sean','Spencer','Teddy','Tyler','Vijay','Wyatt']
 DIR = r'Resources\KAP_Gentlemen'
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')

@@ -5,7 +5,7 @@ import cv2 as cv
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
-people = ['Aiden S', 'Bryce', 'Caleb', 'Charlie','Ethan','Henry','Issa','Jeff','Jim','John','Matthew','Nate','Nathanel','Scott','Sean','Spencer','Tyler','Vijay','Wyatt']
+people = ['Aiden S', 'Bryce', 'Caleb', 'Chase','Charlie','Ethan''Graham','Henry','Issa','Jeff','Jim','Matt Duncan','Matthew','Nate','Nathanel','Scott','Sean','Spencer','Teddy','Tyler','Vijay','Wyatt']
 # features = np.load('features.npy', allow_pickle=True)
 # labels = np.load('labels.npy')
 
