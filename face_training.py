@@ -2,7 +2,7 @@ import os
 import cv2 as cv
 import numpy as np
 
-people = ['Aiden S', 'Bryce', 'Caleb', 'Chase','Charlie','Ethan','Graham','Henry','Issa','Jeff','Jim','Matt Duncan','Matthew','Nate','Nathanel','Scott','Sean','Spencer','Teddy','Tyler','Vijay','Wyatt']
+people = ['Bryce', 'Caleb', 'Chase','Charlie','Ethan','Graham','Henry','Issa','Jeff','Jim','Matt Duncan','Matthew','Nate','Scott','Sean','Spencer','Teddy','Tyler','Vijay','Wyatt']
 DIR = r'Resources\KAP_Gentlemen'
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
@@ -24,7 +24,6 @@ def create_train():
             gray = cv.cvtColor(img_array, cv.COLOR_BGR2GRAY)
 
             faces_rect = haar_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=4)
-
             for (x,y,w,h) in faces_rect:
                 faces_roi = gray[y:y+h, x:x+w]
                 features.append(faces_roi)
