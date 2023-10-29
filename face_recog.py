@@ -5,20 +5,22 @@ import cv2 as cv
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
-people = ['Bryce', 'Caleb', 'Chase','Charlie','Ethan''Graham','Henry','Issa','Jeff','Jim','Matt Duncan','Matthew','Nate','Scott','Sean','Spencer','Teddy','Tyler','Vijay','Wyatt']
+people = ['Bryce', 'Caleb', 'Chase','Charlie','Ethan','Graham','Henry','Issa','Jeff','Jim','Matt Duncan','Matthew','Nate','Scott','Sean','Sebastian B','Shen','Spencer','Teddy','Tyler','Vijay','Wyatt']
 # features = np.load('features.npy', allow_pickle=True)
 # labels = np.load('labels.npy')
 
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('face_trained.yml')
 
-img = cv.imread(r'Resources\KAP_Gentlemen\Spencer\20231016221759-67c785a5-xl.jpg')
+# img = cv.imread(r'Resources\Group_Photos\Retreat 23-24 Group\20231016221434-f28fc50e-xl.jpg') #good except for random detections
+# img = cv.imread(r'Resources\Group_Photos\20230929131522-a00fa559-xx.jpg') #currently good except for John
+img = cv.imread(r'Resources\Group_Photos\20230828003535-4c8dd4c5-la.jpg')
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 # cv.imshow('Person', gray)
 
 # Detect the face in the image
-faces_rect = haar_cascade.detectMultiScale(gray, 1.1, 8)
+faces_rect = haar_cascade.detectMultiScale(gray, 1.1, 10)
 dist = 30
 for (x,y,w,h) in faces_rect:
     faces_roi = gray[y:y+h,x:x+w]
