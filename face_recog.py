@@ -13,10 +13,10 @@ face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('face_trained.yml')
 
 # img = cv.imread(r'Resources\Group_Photos\Retreat 23-24 Group\20231016221434-f28fc50e-xl.jpg') #good with filter at 80
-# img = cv.imread(r'Resources\Group_Photos\20230929131522-a00fa559-xx.jpg') #Gotten Worse :(
-img = cv.imread(r'Resources\Group_Photos\20230828003535-4c8dd4c5-la.jpg') #bad
+# img = cv.imread(r'Resources\Group_Photos\20230929131522-a00fa559-xx.jpg') #Not bad
+# img = cv.imread(r'Resources\Group_Photos\20230828003535-4c8dd4c5-la.jpg') #bad
 # img = cv.imread(r'Resources\Group_Photos\20230828003617-110b7384-la.jpg') #entirely wrong
-# img = cv.imread(r'Resources\Group_Photos\20230828003544-84f434d3-xl.jpg') #scotts face not detected
+img = cv.imread(r'Resources\Group_Photos\20230828003544-84f434d3-xl.jpg') #scotts face not detected
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 # cv.imshow('Person', gray)
