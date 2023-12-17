@@ -7,18 +7,20 @@ import yaml
 from PIL import Image
 from tqdm import tqdm
 
-from utils import make_dirs
-
+# from utils import make_dirs
+from os import makedirs
 
 def convert(file, zip=True):
     # Convert Labelbox JSON labels to YOLO labels
     names = []  # class names
     file = Path(file)
-    save_dir = make_dirs(file.stem)
+    # save_dir = makedirs(file.stem)
+    save_dir = "test"
     with open(file) as f:
         data = json.load(f)  # load JSON
 
     for img in tqdm(data, desc=f'Converting {file}'):
+        print(img)
         im_path = img['Labeled Data']
         im = Image.open(requests.get(im_path, stream=True).raw if im_path.startswith('http') else im_path)  # open
         width, height = im.size  # image size
@@ -60,4 +62,4 @@ def convert(file, zip=True):
 
 
 if __name__ == '__main__':
-    convert('export-2021-06-29T15_25_41.934Z.json')
+    convert('testjsons/20231016210343-c445568c-xx.json')
