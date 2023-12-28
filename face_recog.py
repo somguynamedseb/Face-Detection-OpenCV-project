@@ -5,12 +5,6 @@ import cv2 as cv
 import os
 directory = r'C:\Users\sebas\Documents\GitHub\OpenCV-Project-1'
 
-# Change the current directory  
-# to specified directory  
-os.chdir(directory) 
-    
-    
-    
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
 people = ['Adam','Bryce', 'Caleb', 'Chase','Charlie','Ethan','Graham','Henry','Issa','Jeff','Jim','Matt Duncan','Matthew','Nate','Scott','Sean','Sebastian','Shen','Spencer','Teddy','Tyler','Vijay','Wyatt']
@@ -24,7 +18,7 @@ face_recognizer.read('face_trained.yml')
 # img = cv.imread(r'Resources\Group_Photos\20230929131522-a00fa559-xx.jpg') #pretty good needs new recog model
 # img = cv.imread(r'Resources\Group_Photos\20230828003535-4c8dd4c5-la.jpg') #bad
 # img = cv.imread(r'Resources\Group_Photos\20230828003617-110b7384-la.jpg') #entirely wrong
-img = cv.imread(r'Resources\Group_Photos\20230828003544-84f434d3-xl.jpg') #scotts face not detected
+img = cv.imread(r'Students_in_Large_Classroom_with_Laptops.jpg') #scotts face not detected
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 # cv.imshow('Person', gray)
