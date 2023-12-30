@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['head', 'helmet', 'person']
+
+roboflow:
+  workspace: hcmute-zufxf
+  project: human-head-bxqso
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/hcmute-zufxf/human-head-bxqso/dataset/2
