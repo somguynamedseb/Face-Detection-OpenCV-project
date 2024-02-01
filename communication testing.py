@@ -1,21 +1,25 @@
 import serial
 
-import time
+from time import sleep
 
-serial1 = serial.Serial('/dev/ttyACM0', 9600)
+serial1 = serial.Serial('COM11', 9600)
 # import required module
 import os
 from ultralytics import YOLO
 from PIL import Image
 import cv2 as cv
 import time
+
+deadzone = 10
+
+
 model = YOLO("train3/weights/last.pt")
 
-
+print("model loaded")
 filename = 'example unknowns/104712738-Accounting_101.jpg'
-vid = cv.VideoCapture(0) 
+vid = cv.VideoCapture(1)
+print("cam loaded") 
 ret, frame = vid.read() 
-
 wid = frame.shape[1] 
 hgt = frame.shape[0] 
 
@@ -62,12 +66,12 @@ while(True):
         if center_x > x_head:
             LR = "l"
             LRpercent = int(((abs(center_x - x_head) / center_x)*100)-1)
-            if LRpercent<5:
+            if LRpercent<deadzone:
                 LRpercent = "00"
         elif center_x < x_head:
             LR = "r"
             LRpercent = int(((abs(center_x - x_head) / center_x)*100)-1)
-            if LRpercent<5:
+            if LRpercent<deadzone:
                 LRpercent = "00"
         else:
             LR = "N"
@@ -80,5 +84,10 @@ while(True):
         LRpercent = "00"
     
     # print(output.format(UD, UDpercent, LR, LRpercent))
-    serial1.write('UD+str(UDpercent)+LR+str(LRpercent)')
-    print(UD+str(UDpercent)+LR+str(LRpercent))
+    encoded_output = (output.format(UD, UDpercent, LR, LRpercent)).encode()
+    serial1.write(encoded_output)
+    # print(encoded_output)
+    # data = serial1.readline()
+    # print(data)
+    # print(UD+str(UDpercent)+LR+str(LRpercent))
+    sleep(0.5)
